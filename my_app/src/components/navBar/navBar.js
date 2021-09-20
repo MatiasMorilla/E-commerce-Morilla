@@ -1,10 +1,10 @@
 /* CUSTOMS STYLES */ 
 import './navBar.css';
 /* MATERIAL UI */
-import {AppBar, Toolbar, Typography, IconButton, InputBase} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, IconButton, InputBase, Button} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import CartWidget from '../cartWidget/cartWidget';
 
 
 
@@ -34,15 +34,13 @@ const NavBar = () => {
                 <ul className="Toolbar__menu">
                     <li className="Toolbar__menu__item">
                         {/* Sirve para hacer un botn que sea un icono */}
-                        <IconButton className="Toolbar__menu__item__iconBtn">
+                        <Button variant="text" className="btn-user">
                             {/* Es el icono que va a servir como boton */}
-                            <AccountCircleIcon className="iconBtn__icon" />
-                        </IconButton>
+                            <AccountCircleIcon className="btn-user__icon" />
+                        </Button>
                     </li>
                     <li className="Toolbar__menu__item">
-                        <IconButton className="Toolbar__menu__item__iconBtn">
-                            <ShoppingCartIcon className="iconBtn__icon" />
-                        </IconButton>
+                        <CartWidget/>
                     </li>
                 </ul>
             </Toolbar>

@@ -11,6 +11,7 @@ li{
 header.NavBar{
     height: 70px;
     background: #fff;
+    position: inherit;
 }
 
 .Toolbar{
@@ -40,7 +41,7 @@ header.NavBar{
     display: flex;
 }
 
-.Toolbar__menu__item__iconBtn .iconBtn__icon{
-    font-size: 1.4em;
+.Toolbar__menu__item .btn-user .btn-user__icon{
+    font-size: 2em;
     color: #000;
 }
