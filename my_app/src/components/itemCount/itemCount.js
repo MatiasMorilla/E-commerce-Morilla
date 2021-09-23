@@ -6,32 +6,41 @@ import { useState } from 'react';
 
 
 
-const ItemCount = (props) => 
+const ItemCount = ({stock, initial = 0, onAdd}) => 
 {
-    const [count, setCount] = useState(props.initial);
+    const [count, setCount] = useState(initial);
 
     const add = () =>
     {
-         if(count < props.stock)
+         if(count < stock)
          {
             setCount(count + 1);
          }
     }
     const remove = () =>
     { 
-        if(count > props.initial)
+        if(count > initial)
         {
             setCount(count - 1);
         }
     }
 
+
     return(
         <>
             <div className="controls">
-                <Button variant="text" color="primary" onClick={remove}>-</Button>
-                <p>{count}</p>
-                <Button variant="text" color="primary" onClick={add}>+</Button>
+                <Button variant="text" color="primary" disabled={stock === 0 || count <= initial} onClick={remove}>-</Button>
+                <span>{stock === 0 ? 'Sin stock' : count}</span>
+                <Button variant="text" color="primary" disabled={stock === 0 || count >= stock} onClick={add}>+</Button>
             </div>
+            <Button className="cardContent__btn-buy"
+                    variant="contained" 
+                    color="primary" 
+                    onClick={ () => {onAdd(count)}}
+                    disabled={stock === 0 || count <= 0 || count > stock}
+                    >
+                Comprar
+            </Button>
         </>
     );
 }

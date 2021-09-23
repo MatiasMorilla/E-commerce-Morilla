@@ -6,7 +6,6 @@ import Item from '../item/item';
 import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
 import img2 from "../../assets/productImg/zapatillas-mujer-new-balance-2.jpg";
 import img3 from "../../assets/productImg/zapatilla-hombre-new-balance-3.jpg";
-import img3_2 from "../../assets/productImg/zapatilla-hombre-new-balance-3.2.jpg";
 import { CircularProgress } from '@material-ui/core';
 
 const ItemList = () => 

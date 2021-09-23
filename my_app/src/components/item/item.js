@@ -2,10 +2,11 @@
 import './item.css';
 /* MATERIAL UI */
 import {Button, Card, CardContent, CardMedia} from '@material-ui/core';
+import ItemCount from '../itemCount/itemCount';
 
+const onAdd = (count) => console.log(`Se agregaron ${count} item al carrito`);
 
-
-const Item = (props) => 
+const Item = ({name, price, img, stock}) => 
 {
     return (
         <Card className="card-container">
@@ -13,18 +14,17 @@ const Item = (props) =>
                 component="img"
                 width="200"
                 height= "140"
-                image= {props.img}
-                alt={props.img}
+                image= {img}
+                alt={img}
             />
             <CardContent className="cardContent">
                 <h4 className="cardContent__title">
-                    {props.name}
+                    {name}
                 </h4>
                 <p className="cardContent__price"> 
-                    ${props.price}
+                    ${price}
                 </p>
-
-                <Button className="cardContent__btn-buy" variant="outlined" color="primary">Comprar</Button>
+                <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
             </CardContent>
         </Card>
     );

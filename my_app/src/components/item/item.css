@@ -6,7 +6,8 @@
 }
 
 .card-container:hover{
-    transform: scale(1.05);
+    transform: scale(1.1);
+    border: 1px solid rgba(0, 0, 0, 0.215);
     transition: all .4s;
 }
 
@@ -31,11 +32,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.card-container .cardContent .cardContent__itemCount{
-    grid-area: count;
-    background: #000;
 }
 
 .card-container .cardContent .cardContent__btn-buy{
