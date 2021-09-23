@@ -1,17 +1,9 @@
-.container{
-    background: #eee;
-    width: 13em;
-    height: 10em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .controls{
-    width: 100%;
+    grid-area: count;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background: rgb(224 224 224 / 15%);
+    border-radius: 5px;
+    margin-bottom: 1em;
 }

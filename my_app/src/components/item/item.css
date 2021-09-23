@@ -1,0 +1,44 @@
+.card-container{
+    max-width: 270px;
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.card-container:hover{
+    transform: scale(1.05);
+    transition: all .4s;
+}
+
+.card-container .cardContent{
+    display: grid;
+    grid-template-areas: "title title title"
+                         "count count count"
+                         "price btn btn";
+}
+
+.card-container .cardContent .cardContent__title{
+    grid-area: title;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+.card-container .cardContent .cardContent__price{
+    grid-area: price;
+    margin: 0px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container .cardContent .cardContent__itemCount{
+    grid-area: count;
+    background: #000;
+}
+
+.card-container .cardContent .cardContent__btn-buy{
+    grid-area: btn;
+}
+

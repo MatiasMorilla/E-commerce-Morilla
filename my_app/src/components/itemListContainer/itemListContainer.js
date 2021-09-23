@@ -1,6 +1,7 @@
 /* CUSTOM STYLES */
-import ItemCount from '../itemCount/itemCount';
 import './itemListContainer.css';
+import ItemList from '../itemList/itemList';
+
 
 
 const ItemListContainer = (props) => 
@@ -8,7 +9,7 @@ const ItemListContainer = (props) =>
     return(
         <div>
             <h1>{props.greeting}</h1>
-            <ItemCount stock="5" initial={1} />
+            <ItemList/>
         </div>
     );
 }

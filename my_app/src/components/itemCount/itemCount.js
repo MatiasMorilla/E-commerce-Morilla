@@ -16,10 +16,6 @@ const ItemCount = (props) =>
          {
             setCount(count + 1);
          }
-         else
-         {
-            console.log("no hay mas stock");
-         }
     }
     const remove = () =>
     { 
@@ -30,17 +26,13 @@ const ItemCount = (props) =>
     }
 
     return(
-        <div className="container">
-            <h3>Remera</h3>
+        <>
             <div className="controls">
                 <Button variant="text" color="primary" onClick={remove}>-</Button>
                 <p>{count}</p>
                 <Button variant="text" color="primary" onClick={add}>+</Button>
             </div>
-            <Button variant="contained" color="primary" fullWidth={true}>
-              Agregar al carrito
-            </Button>
-        </div>
+        </>
     );
 }
 

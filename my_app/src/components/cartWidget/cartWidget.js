@@ -1,7 +1,7 @@
 /* CUSTOM STYLES */
 import './cartWidget.css';
 /* MATERIAL UI */
-import {IconButton, Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const CartWidget = ()=> {
