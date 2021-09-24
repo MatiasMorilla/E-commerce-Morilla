@@ -7,8 +7,10 @@
 
 .card-container:hover{
     transform: scale(1.1);
-    border: 1px solid rgba(0, 0, 0, 0.215);
-    transition: all .4s;
+    border-top: 1px solid rgba(0, 0, 0, 0.215);
+    border-left: 1px solid rgba(0, 0, 0, 0.215);
+    border-right: 1px solid rgba(0, 0, 0, 0.215);
+    transition: all 0.3s;
 }
 
 .card-container .cardContent{

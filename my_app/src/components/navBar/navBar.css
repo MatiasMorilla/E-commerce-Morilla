@@ -9,7 +9,7 @@ li{
 }
 
 header.NavBar{
-    height: 70px;
+    height: 5.625rem;
     background: #fff;
     position: inherit;
 }
@@ -18,6 +18,14 @@ header.NavBar{
     justify-content: space-between;
     height: 100%;
     color: #000;
+}
+
+.img-container{
+    width: 150px;
+}
+
+.img-container img{
+    width: 100%;
 }
 
 .search-container{
