@@ -24,7 +24,9 @@ const Item = ({name, price, img, stock}) =>
                 <p className="cardContent__price"> 
                     ${price}
                 </p>
-                <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
+                <Button variant="contained" color="primary" className="cardContent__btn">
+                  Comprar
+                </Button>
             </CardContent>
         </Card>
     );
