@@ -33,12 +33,12 @@ const ItemCount = ({stock, initial = 0, onAdd}) =>
                 <span>{stock === 0 ? 'Sin stock' : count}</span>
                 <Button variant="text" color="primary" disabled={stock === 0 || count >= stock} onClick={add}>+</Button>
             </div>
-            <Button className="cardContent__btn-buy"
-                    variant="contained" 
-                    color="primary" 
-                    onClick={ () => {onAdd(count)}}
-                    disabled={stock === 0 || count <= 0 || count > stock}
-                    >
+            <Button className="btn-buy"
+                variant="contained" 
+                color="primary" 
+                onClick={ () => {onAdd(count)}}
+                disabled={stock === 0 || count <= 0 || count > stock}
+            >
                 Comprar
             </Button>
         </>

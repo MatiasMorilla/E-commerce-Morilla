@@ -1,0 +1,21 @@
+.size-container{
+    width: 20em;
+    max-height: 3.4em;
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: size;
+}
+
+.size-container::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+}
+
+.size-container::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.size-container .size-item{
+    margin: 2px;
+}
