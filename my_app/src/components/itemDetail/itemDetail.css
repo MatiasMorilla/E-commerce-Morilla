@@ -1,13 +1,11 @@
 .detail-container{
-    width: 80%;
-    margin: 2.5em auto;
     display: flex;
     justify-content: space-between;
 }
 
 .images-container{
-    width: 12em;
-    height: 23em;
+    width: 12.2em;
+    height: 30em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,6 +15,7 @@
 .images-container .images-list{
     width: 10.5em;
     margin: 10px 5px;
+    cursor: pointer;
 }
 
 .images-container .image-item{
@@ -25,7 +24,8 @@
 }
 
 .bigImage-container{
-    width: 500px;
+    max-width: 780px;
+    min-width: 580px;
 }
 
 .bigImage-container .bigImage-item{

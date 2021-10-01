@@ -7,6 +7,7 @@ import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
 import img2 from "../../assets/productImg/zapatillas-mujer-new-balance-2.jpg";
 import img3 from "../../assets/productImg/zapatilla-hombre-new-balance-3.jpg";
 import { CircularProgress } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const ItemList = () => 
 {
@@ -64,7 +65,9 @@ const ItemList = () =>
                 (
                     products.map((product) => {
                         return (
-                            <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock}/>
+                            <Link to={`/product/${product.id}`} >
+                                <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock}/>
+                            </Link>
                         );
                     })
                 )

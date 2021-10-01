@@ -1,59 +1,41 @@
 import React, {useEffect, useState} from 'react';
 /* CUSTOM STYLE */
 import './itemDetail.css';
-import img1 from '../../assets/productImg/zapatilla-hombre-new-balance-3.jpg';
 import ItemSize from '../itemSize/itemSize';
 
 
-function ItemDetail() {
-    const [product, setProducts] = useState({});
+function ItemDetail({name, images, price, stock}) {
 
-    const getProducts = new Promise( (resolve) => {
-        setTimeout( () =>
-        {
-            const mockProduct = 
-            {
-                id: 1,
-                name: "Zapatillas New Balance 574",
-                img: img1,
-                price: 12.999,
-                stock: 100
-            };
+    const [mainImage, setMainImage] = useState(images[0]);
 
-            resolve(mockProduct);
-        }, 2000);
-    });
-
-    useEffect( () => {
-        getProducts.then( (res) => {
-            setProducts(res);
-        })
-    }, []);
-
-
+    const handleChangeImage = (e) => {
+        console.log(e.target.src);
+        setMainImage(e.target.src);
+    }
 
     return (
         <div className="detail-container">
             <div className="images-container">
-                <div className="images-list">
-                    <img className="image-item" src={product.img} alt="img de zapatillas"/>
-                </div>
-                <div className="images-list">
-                    <img className="image-item" src={product.img} alt="img de zapatillas"/>
-                </div>
-                <div className="images-list">
-                    <img className="image-item" src={product.img} alt="img de zapatillas"/>
-                </div>
+                {
+                    images.map( (image, index) => 
+                    {
+                        return(
+                            <div className="images-list">
+                                <img key={index} className="image-item" onClick={handleChangeImage} src={image} alt="img de zapatillas"/>
+                            </div>
+                        );
+                    })
+                }
             </div>
 
             <div className="bigImage-container">
-                <img className="bigImage-item" src={product.img} alt="img de zapatillas"/>
+                <img className="bigImage-item" src={mainImage} alt="img de zapatillas"/>
             </div>
 
             <div className="productDetails-container">
-                <h2>{product.name}</h2>
-                <ItemSize />
-                <p>{`$${product.price}`}</p>
+                <h2>{name}</h2>
+                <ItemSize stock={stock} initial={1} />
+                <p>{`$${price}`}</p>
             </div>
         </div>
     );

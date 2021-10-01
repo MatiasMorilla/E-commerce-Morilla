@@ -1,3 +1,7 @@
+*{
+  text-decoration: none;
+}
+
 .App {
   font-family:'Roboto', 'Open Sans', sans-serif;
 }

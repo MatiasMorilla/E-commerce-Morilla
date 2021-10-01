@@ -7,6 +7,7 @@ import {AppBar, Toolbar, Typography, IconButton, InputBase, Button} from '@mater
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import CartWidget from '../cartWidget/cartWidget';
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,7 +20,9 @@ const NavBar = () => {
             <Toolbar className="Toolbar">
                 {/* Sirve para poner textos, en este caso vamos poner un logo */}
                 <div className="img-container">
-                    <img src={brand} alt="Logo de la marca sneakers"/>
+                    <Link to={"/"} >
+                        <img src={brand} alt="Logo de la marca sneakers"/>
+                    </Link>
                 </div>
 
                 <div className="search-container">
