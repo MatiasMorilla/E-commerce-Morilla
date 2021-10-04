@@ -6,7 +6,7 @@ import img1 from '../../assets/productImg/zapatilla-hombre-new-balance-3.jpg';
 import img1_1 from '../../assets/productImg/zapatilla-hombre-new-balance-3-1.jpg';
 import img1_2 from '../../assets/productImg/zapatilla-hombre-new-balance-3-2.jpg';
 import img1_3 from '../../assets/productImg/zapatilla-hombre-new-balance-3-3.jpg';
-import { CircularProgress, Paper } from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 import { useParams } from 'react-router';
 
 

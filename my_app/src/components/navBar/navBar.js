@@ -3,22 +3,21 @@ import './navBar.css';
 /* BRAND */
 import brand from '../../assets/brand/brand.png';
 /* MATERIAL UI */
-import {AppBar, Toolbar, Typography, IconButton, InputBase, Button} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, IconButton, InputBase, Button, Divider} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import CartWidget from '../cartWidget/cartWidget';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
 const NavBar = () => {
   return (
-    <div>
+    <div className="navBar-container">
         {/* Header */}
         <AppBar position="fixed" className="NavBar">
             {/* Div donde vamos a poner todos los componentes del nav bar */}
             <Toolbar className="Toolbar">
-                {/* Sirve para poner textos, en este caso vamos poner un logo */}
                 <div className="img-container">
                     <Link to={"/"} >
                         <img src={brand} alt="Logo de la marca sneakers"/>
@@ -26,14 +25,14 @@ const NavBar = () => {
                 </div>
 
                 <div className="search-container">
+                    <InputBase
+                        className="search-input"
+                        placeholder="Buscar en la tienda..."
+                    />
+                    <Divider orientation="vertical" variant="middle" className="search-divider" />
                     <div className="search-icon">
                         <SearchIcon />
                     </div>
-                    <InputBase
-                        className="search-input"
-                        placeholder="Search…"
-                        inputProps={{ 'aria-label': 'search' }}
-                    />
                  </div>
 
                 <ul className="Toolbar__menu">
@@ -48,6 +47,24 @@ const NavBar = () => {
                         <CartWidget/>
                     </li>
                 </ul>
+            </Toolbar>
+            <Divider/>
+            <Toolbar className="category-container">
+                <li>
+                    <NavLink to={"/category/hombre"} activeClassName="active-category" className="navLink-category" >Hombre</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/category/mujer"} activeClassName="active-category" className="navLink-category" >Mujer</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/category/niños"} activeClassName="active-category" className="navLink-category" >Niños</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/category/lifeStyle"} activeClassName="active-category" className="navLink-category" >LifeStyle</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/category/running"} activeClassName="active-category" className="navLink-category" >Running</NavLink>
+                </li>
             </Toolbar>
         </AppBar>
 

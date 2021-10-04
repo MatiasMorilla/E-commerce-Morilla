@@ -8,10 +8,12 @@ import img2 from "../../assets/productImg/zapatillas-mujer-new-balance-2.jpg";
 import img3 from "../../assets/productImg/zapatilla-hombre-new-balance-3.jpg";
 import { CircularProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 const ItemList = () => 
 {
     const [products, setProducts] = useState([]);
+    const {categoryId} = useParams();
 
     const getProducts = new Promise( (resolve) => {
         setTimeout( () =>
@@ -53,10 +55,31 @@ const ItemList = () =>
     });
 
     useEffect( () => {
+        // seteo el array de productos con un array vacio para que cuando se cambia de categoria vuelva a aparecer el loader
+        setProducts([]);
+
         getProducts.then( (res) => {
-            setProducts(res);
+            setProducts(filterByCategory(res));
         })
-    }, []);
+
+        console.log(categoryId);
+    }, [categoryId]);
+
+    const filterByCategory = (array) =>{
+        let filteredArray = [];
+
+        if(categoryId != "")
+        {
+            array.forEach(product => {
+                if(product.img.search(categoryId) != -1)
+                {
+                    filteredArray.push(product);
+                }
+            });
+        }
+
+        return filteredArray;
+    }
 
     return (
         <div className="itemList-container">

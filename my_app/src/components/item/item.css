@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     margin: 2em;
+    text-decoration: none;
 }
 
 .card-container:hover{
@@ -18,12 +19,14 @@
     grid-template-areas: "title title title"
                          "count count count"
                          "price btn btn";
+    text-decoration: none;
 }
 
 .card-container .cardContent .cardContent__title{
     grid-area: title;
     text-align: center;
     margin-bottom: 1.5em;
+    text-decoration: none;
 }
 
 .card-container .cardContent .cardContent__price{
@@ -34,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
 }
 
 .card-container .cardContent .cardContent__btn{
