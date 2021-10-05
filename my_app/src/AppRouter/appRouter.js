@@ -3,6 +3,7 @@ import NavBar from '../components/navBar/navBar';
 import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
 import ItemListContainer from '../components/itemListContainer/itemListContainer';
 import Slider from '../components/slider/slider'
+import NotFoundPage from '../components/notFoundPage/notFoundPage';
 
 
 const AppRouter = () => {
@@ -20,9 +21,12 @@ const AppRouter = () => {
                     <Route path="/cart">
                         <h1>Cart</h1>
                     </Route>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Slider />
                         <ItemListContainer greeting="Lista de productos"/>
+                    </Route>
+                    <Route path="*">
+                        <NotFoundPage />
                     </Route>
                 </Switch>
             </BrowserRouter>

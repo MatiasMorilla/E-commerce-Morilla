@@ -1,0 +1,4 @@
+.carousel-control-prev .carousel-control-prev-icon,
+.carousel-control-next .carousel-control-next-icon{
+    visibility: hidden;
+}
