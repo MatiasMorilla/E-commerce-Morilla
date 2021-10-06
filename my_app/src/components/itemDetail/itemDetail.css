@@ -55,4 +55,19 @@
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    margin: 0;
+}
+
+.link_btn-buy{
+    width: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-buy{
+    grid-area: btn;
+    height: 3em;
+    width: 11em;
 }

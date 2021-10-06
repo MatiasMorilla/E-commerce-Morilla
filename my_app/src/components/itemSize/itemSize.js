@@ -5,7 +5,7 @@ import ItemCount from '../itemCount/itemCount';
 /* MATERIAL UI */
 
 
-function ItemSize({stock, initial}) {
+function ItemSize() {
   return (
     <>
         <div className="size-container">
@@ -22,8 +22,6 @@ function ItemSize({stock, initial}) {
               <Button className="size-item" variant="outlined">43</Button>
            </div>
         </div>
-
-        <ItemCount stock={stock} initial={initial} />
     </>
 
   );
