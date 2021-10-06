@@ -51,19 +51,19 @@ const NavBar = () => {
             <Divider/>
             <Toolbar className="category-container">
                 <li>
-                    <NavLink to={"/category/hombre"} activeClassName="active-category" className="navLink-category" >Hombre</NavLink>
+                    <NavLink to={"/category/Hombre"} activeClassName="active-category" className="navLink-category" >Hombre</NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/category/mujer"} activeClassName="active-category" className="navLink-category" >Mujer</NavLink>
+                    <NavLink to={"/category/Mujer"} activeClassName="active-category" className="navLink-category" >Mujer</NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/category/niños"} activeClassName="active-category" className="navLink-category" >Niños</NavLink>
+                    <NavLink to={"/category/Niños"} activeClassName="active-category" className="navLink-category" >Niños</NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/category/lifeStyle"} activeClassName="active-category" className="navLink-category" >LifeStyle</NavLink>
+                    <NavLink to={"/category/LifeStyle"} activeClassName="active-category" className="navLink-category" >LifeStyle</NavLink>
                 </li>
                 <li>
-                    <NavLink to={"/category/running"} activeClassName="active-category" className="navLink-category" >Running</NavLink>
+                    <NavLink to={"/category/Running"} activeClassName="active-category" className="navLink-category" >Running</NavLink>
                 </li>
             </Toolbar>
         </AppBar>

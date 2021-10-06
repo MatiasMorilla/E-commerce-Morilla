@@ -22,6 +22,7 @@ const ItemList = () =>
             [
                 {
                     id: 1,
+                    category: "Mujer",
                     name: "Zapatillas New Balance 574",
                     img: img1,
                     price: 12.999,
@@ -29,6 +30,7 @@ const ItemList = () =>
                 },
                 {
                     id: 2,
+                    category: "Mujer",
                     name: "Zapatillas New Balance 574",
                     img: img2,
                     price: 12.999,
@@ -36,6 +38,7 @@ const ItemList = () =>
                 },
                 {
                     id: 3,
+                    category: "Hombre",
                     name: "Zapatillas New Balance 574",
                     img: img3,
                     price: 12.889,
@@ -43,6 +46,7 @@ const ItemList = () =>
                 },
                 {
                     id: 4,
+                    category: "Hombre",
                     name: "Zapatillas New Balance 574",
                     img: img3,
                     price: 12.899,
@@ -68,14 +72,13 @@ const ItemList = () =>
     const filterByCategory = (array) =>{
         let filteredArray = [];
 
-        if(categoryId != "")
+        if(categoryId != undefined)
         {
-            array.forEach(product => {
-                if(product.img.search(categoryId) != -1)
-                {
-                    filteredArray.push(product);
-                }
-            });
+           filteredArray =  array.filter( product => product.category == categoryId);
+        }
+        else
+        {
+            filteredArray = array;
         }
 
         return filteredArray;
@@ -88,7 +91,7 @@ const ItemList = () =>
                 (
                     products.map((product) => {
                         return (
-                            <Link to={`/product/${product.id}`} >
+                            <Link to={`/product/${product.id}`} className="link-product">
                                 <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock}/>
                             </Link>
                         );

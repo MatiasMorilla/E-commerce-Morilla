@@ -11,13 +11,16 @@ li{
 
 header.NavBar{
     background: #fff;
+    margin-bottom: 2em;
     position: inherit;
+    background: #2c3067;
 }
 
 .Toolbar{
     justify-content: space-between;
     height: 5.2em;
-    color: #000;
+    background: #fafafa;
+    color: #000; 
 }
 
 .img-container{
@@ -72,10 +75,11 @@ header.NavBar{
 
 
 .navLink-category{
-    color: #000;
+    color: #fff;
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
+    letter-spacing: 1.5px;
 }
 
 .navLink-category:hover{
