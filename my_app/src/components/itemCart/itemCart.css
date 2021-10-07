@@ -1,0 +1,55 @@
+.product{
+    width: 100%;
+    padding: .3em;
+    display: grid;
+    grid-template-areas: "img data quantity delete"
+                         "img data quantity delete";
+    border: 1px solid rgba(0, 0, 0, 0.151);
+}
+
+.product-img{
+    grid-area: img;
+    width: 120px;
+}
+
+.product-img img{
+    width: 100%;
+}
+
+.product-data{
+    grid-area: data;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.product-quantity{
+    grid-area: quantity;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.product-delete{
+    grid-area: delete;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-delete .button-delete{
+    min-width: 1em;
+    width: 2.5em;
+    height: 2.5em;
+    color: #30368f;
+}
+
+.product-delete .button-delete .button-delete-icon{
+    font-size: 32px;
+}

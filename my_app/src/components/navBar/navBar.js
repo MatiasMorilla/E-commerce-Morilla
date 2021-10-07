@@ -25,14 +25,13 @@ const NavBar = () => {
                 </div>
 
                 <div className="search-container">
+                    <div className="search-icon">
+                        <SearchIcon />
+                    </div>
                     <InputBase
                         className="search-input"
                         placeholder="Buscar en la tienda..."
                     />
-                    <Divider orientation="vertical" variant="middle" className="search-divider" />
-                    <div className="search-icon">
-                        <SearchIcon />
-                    </div>
                  </div>
 
                 <ul className="Toolbar__menu">

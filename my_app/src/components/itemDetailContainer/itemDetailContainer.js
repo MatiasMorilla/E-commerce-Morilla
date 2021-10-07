@@ -61,7 +61,7 @@ const ItemDetailContainer = (props) =>
                     )
                     : 
                     (
-                        <ItemDetail name={product.name} images={product.images} price={product.price} stock={product.stock} />
+                        <ItemDetail product={product} />
                     )
                 }
             </div>

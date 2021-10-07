@@ -66,7 +66,6 @@ const ItemList = () =>
             setProducts(filterByCategory(res));
         })
 
-        console.log(categoryId);
     }, [categoryId]);
 
     const filterByCategory = (array) =>{

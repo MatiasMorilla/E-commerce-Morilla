@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 /* CUSTOM STYLE */
 import './itemDetail.css';
@@ -7,20 +7,22 @@ import ItemSize from '../itemSize/itemSize';
 import ItemCount from '../itemCount/itemCount';
 /* MATERIAL UI */
 import Button from "@material-ui/core/Button";
+/* CONTEXT */
+import CartContext from '../cartContext/cartContext';
 
 
-function ItemDetail({name, images, price, stock}) {
-
-    const [mainImage, setMainImage] = useState(images[0]);
+function ItemDetail({product}) {
+    const [mainImage, setMainImage] = useState(product.images[0]);
     const [quantity, setQuantity] = useState(0);
+    const {products, addProduct} = useContext(CartContext); // usar para pasar el producto al carrito
 
+    
     const handleChangeImage = (e) => {
-        console.log(e.target.src);
         setMainImage(e.target.src);
     }
 
     const onAdd = () => {
-        quantity < stock && setQuantity(quantity + 1);
+        quantity < product.stock && setQuantity(quantity + 1);
     }
 
     const onSubtract = () => {
@@ -31,7 +33,7 @@ function ItemDetail({name, images, price, stock}) {
         <div className="detail-container">
             <div className="images-container">
                 {
-                    images.map( (image, index) => 
+                    product.images.map( (image, index) => 
                     {
                         return(
                             <div className="images-list">
@@ -47,19 +49,21 @@ function ItemDetail({name, images, price, stock}) {
             </div>
 
             <div className="productDetails-container">
-                <h2>{name}</h2>
+                <h2>{product.name}</h2>
                 <ItemSize />
-                <ItemCount stock={stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
-                <Link to={"/cart"} className="link_btn-buy" >
+
+                <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
+
+                <Link to={"/"} className="link_btn-buy" >
                     <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
-                        disabled={stock === 0 || quantity <= 0 || quantity > stock}
+                        disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
                     >
                         Comprar
                     </Button>
                 </Link>
-                <p>{`$${price}`}</p>
+                <p>{`$${product.price}`}</p>
             </div>
         </div>
     );
