@@ -54,7 +54,7 @@ function ItemDetail({product}) {
 
                 <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
 
-                <Link to={"/"} className="link_btn-buy" >
+                <Link to={"/Cart"} className="link_btn-buy" >
                     <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
