@@ -6,13 +6,20 @@ const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
 
     const addProduct = (product) => {
-        /* products.push(product); */
-        console.log(product);
+        products.push(product);
+    }
+
+    const removeProduct = (product) => {
+        //Obtenemos el indice del producto
+        let indexOfProduct = products.indexOf(product);
+        //Eliminamos el producto
+        products.splice(indexOfProduct, 1); 
     }
 
     const data = {
         products,
-        addProduct
+        addProduct,
+        removeProduct
     }
 
     return (

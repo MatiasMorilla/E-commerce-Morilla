@@ -2,19 +2,17 @@
 import './item.css';
 /* MATERIAL UI */
 import {Button, Card, CardContent, CardMedia} from '@material-ui/core';
-import ItemCount from '../itemCount/itemCount';
 
-const onAdd = (count) => console.log(`Se agregaron ${count} item al carrito`);
-
-const Item = ({name, price, img, stock}) => 
+const Item = ({name, price, img}) => 
 {
+
     return (
         <Card className="card-container">
             <CardMedia
                 component="img"
                 width="200"
                 height= "140"
-                image= {img}
+                image= {img[0]}
                 alt={img}
             />
             <CardContent className="cardContent">

@@ -1,52 +1,34 @@
+import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router';
 /* CUSTOM STYLES */
 import './itemDetailContainer.css';
+/* COMPONENTS */
 import ItemDetail from '../itemDetail/itemDetail';
-import { useEffect, useState } from 'react';
-import img1 from '../../assets/productImg/zapatilla-hombre-new-balance-3.jpg';
-import img1_1 from '../../assets/productImg/zapatilla-hombre-new-balance-3-1.jpg';
-import img1_2 from '../../assets/productImg/zapatilla-hombre-new-balance-3-2.jpg';
-import img1_3 from '../../assets/productImg/zapatilla-hombre-new-balance-3-3.jpg';
+/* MATERIAL UI */
 import { CircularProgress } from '@material-ui/core';
-import { useParams } from 'react-router';
+/* CONTEXT */
+import ProductsContext from '../Context/productsContext';
 
 
 const ItemDetailContainer = (props) => 
 {
     const [product, setProduct] = useState({});
     const {productId} = useParams();
+    const {getProducts} = useContext(ProductsContext);
 
-    const getProduct = new Promise( (resolve) => 
-    {
-        setTimeout( () => 
-        {
-            const mockProduct = 
-            {
-                id: 1,
-                name: "Zapatillas New Balance 574",
-                images:
-                [
-                    img1,
-                    img1_1,
-                    img1_2,
-                    img1_3
-                ],
-                price: 13.999,
-                stock: 100
-            };
-
-            resolve(mockProduct);
-        }, 2000);
-    })
-
+    const filterById = (array) => {
+        // filter nos devuelve un array con un objeto por eso accedemos a su primera posicion y despues lo seteamos al product
+        setProduct(array.filter( (product) => product.id == productId)[0]);
+    }
 
     useEffect( () => 
     {
-        getProduct.then( (res) =>
+        getProducts.then( (res) =>
         {
-            setProduct(res);
+            filterById(res);
         });
 
-    }, []);
+    }, [productId]);
 
     return(
         <div>

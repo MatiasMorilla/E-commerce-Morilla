@@ -1,28 +1,37 @@
+import { useContext } from 'react';
 /* CUSTOM STYLES */
 import './itemCart.css';
 /* MATERIAL UI */
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button'
 
-import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
+/* CONTEXT */
+import CartContext from '../Context/cartContext';
 
 
 const ItemCart = ({product})=> {
+    const { removeProduct } = useContext(CartContext);
+
+    const removeFromCart = () =>{
+        removeProduct(product)
+    }
 
     return ( 
         <div className="product">
             <div className="product-img">
-                <img src={img1}/>
+                <img src={product.images[0]}/>
             </div>
             <div className="product-data">
-                <h5>Nombre producto</h5>
-                <span>$12.000</span>
+                <h5>{product.name}</h5>
+                <span>${product.price}</span>
             </div>
             <div className="product-quantity">
-                <span>5</span>
+                <span>{product.quantity}</span>
             </div> 
             <div className="product-delete">
-                <Button className="button-delete">
+                <Button className="button-delete"
+                    onClick={removeFromCart}    
+                >
                     <DeleteForeverIcon className="button-delete-icon" />
                 </Button>   
             </div>  

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 /* CUSTOM STYLES */
 import './cart.css';
 /* MATERIAL UI */
@@ -8,12 +8,10 @@ import Button from '@mui/material/Button'
 import ItemCart from '../itemCart/itemCart';
 
 /* CONTEXT */
-import cartContext from '../cartContext/cartContext';
+import cartContext from '../Context/cartContext';
 
 const Cart = ({showCart, close})=> {
-    const { products } = useContext(cartContext);
-
-    console.log(products);
+    const { products } = useContext(cartContext); //FALTA HACER QUE SE ACTUALICE SOLO SIN SALIR DEL CARRITO
 
     return ( 
         <div className={`cart-container ${showCart ? "active" : ""}`} > 
@@ -24,7 +22,13 @@ const Cart = ({showCart, close})=> {
                 </Button>   
             </div>
             <div className="cart-products-container">
-                <ItemCart />
+                {
+                    products.map( (product) => {
+                        return(
+                            <ItemCart product={product} />
+                        );
+                    })
+                }
             </div>
             <div className="cart-footer">
                 <div className="total-price">

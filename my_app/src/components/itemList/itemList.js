@@ -1,62 +1,20 @@
-import React, {useEffect, useState} from 'react';
-/* CUSTON STYLES */
-import './itemList.css';
-
-import Item from '../item/item';
-import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
-import img2 from "../../assets/productImg/zapatillas-mujer-new-balance-2.jpg";
-import img3 from "../../assets/productImg/zapatilla-hombre-new-balance-3.jpg";
-import { CircularProgress } from '@material-ui/core';
+import React, {useContext, useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
+/* CUSTON STYLES */
+import './itemList.css';
+/* MATERIAL UI */
+import { CircularProgress } from '@material-ui/core';
+/* COMPONENTS */
+import Item from '../item/item';
+/* CONTEXT */
+import ProductsContext from '../Context/productsContext';
 
 const ItemList = () => 
 {
     const [products, setProducts] = useState([]);
     const {categoryId} = useParams();
-
-    const getProducts = new Promise( (resolve) => {
-        setTimeout( () =>
-        {
-            const mockProduct = 
-            [
-                {
-                    id: 1,
-                    category: "Mujer",
-                    name: "Zapatillas New Balance 574",
-                    img: img1,
-                    price: 12.999,
-                    stock: 100
-                },
-                {
-                    id: 2,
-                    category: "Mujer",
-                    name: "Zapatillas New Balance 574",
-                    img: img2,
-                    price: 12.999,
-                    stock: 150
-                },
-                {
-                    id: 3,
-                    category: "Hombre",
-                    name: "Zapatillas New Balance 574",
-                    img: img3,
-                    price: 12.889,
-                    stock: 90
-                },
-                {
-                    id: 4,
-                    category: "Hombre",
-                    name: "Zapatillas New Balance 574",
-                    img: img3,
-                    price: 12.899,
-                    stock: 40
-                }
-            ]
-
-            resolve(mockProduct);
-        }, 2000);
-    });
+    const {getProducts} = useContext(ProductsContext)
 
     useEffect( () => {
         // seteo el array de productos con un array vacio para que cuando se cambia de categoria vuelva a aparecer el loader
@@ -91,7 +49,7 @@ const ItemList = () =>
                     products.map((product) => {
                         return (
                             <Link to={`/product/${product.id}`} className="link-product">
-                                <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock}/>
+                                <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
                             </Link>
                         );
                     })

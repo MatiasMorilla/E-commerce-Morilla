@@ -8,17 +8,22 @@ import ItemCount from '../itemCount/itemCount';
 /* MATERIAL UI */
 import Button from "@material-ui/core/Button";
 /* CONTEXT */
-import CartContext from '../cartContext/cartContext';
+import CartContext from '../Context/cartContext';
 
 
 function ItemDetail({product}) {
     const [mainImage, setMainImage] = useState(product.images[0]);
-    const [quantity, setQuantity] = useState(0);
-    const {products, addProduct} = useContext(CartContext); // usar para pasar el producto al carrito
+    const [quantity, setQuantity] = useState(1);
+    const {products, addProduct} = useContext(CartContext);
 
     
     const handleChangeImage = (e) => {
         setMainImage(e.target.src);
+    }
+
+    const addToCart = () => {
+        product.quantity = quantity;
+        addProduct(product);
     }
 
     const onAdd = () => {
@@ -54,15 +59,25 @@ function ItemDetail({product}) {
 
                 <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
 
-                <Link to={"/Cart"} className="link_btn-buy" >
+                {/* <Link to={"/Cart"} className="link_btn-buy" >
                     <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
                         disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
+                        onClick={addProduct(product)}
                     >
                         Comprar
                     </Button>
-                </Link>
+                </Link> */}
+
+                    <Button className="btn-buy"
+                        variant="contained" 
+                        color="primary" 
+                        disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
+                        onClick={addToCart}
+                    >
+                        Comprar
+                    </Button>
                 <p>{`$${product.price}`}</p>
             </div>
         </div>
