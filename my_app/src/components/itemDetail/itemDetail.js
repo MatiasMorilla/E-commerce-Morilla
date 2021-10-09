@@ -59,7 +59,7 @@ function ItemDetail({product}) {
 
                 <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
 
-                {/* <Link to={"/Cart"} className="link_btn-buy" >
+                <Link to={"/Cart"} className="link_btn-buy" >
                     <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
@@ -68,16 +68,7 @@ function ItemDetail({product}) {
                     >
                         Comprar
                     </Button>
-                </Link> */}
-
-                    <Button className="btn-buy"
-                        variant="contained" 
-                        color="primary" 
-                        disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
-                        onClick={addToCart}
-                    >
-                        Comprar
-                    </Button>
+                </Link>
                 <p>{`$${product.price}`}</p>
             </div>
         </div>
