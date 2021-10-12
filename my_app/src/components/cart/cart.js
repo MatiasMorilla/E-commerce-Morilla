@@ -3,7 +3,6 @@ import { useState, useContext, useEffect } from 'react';
 import './cart.css';
 /* MATERIAL UI */
 import CloseIcon from '@mui/icons-material/Close';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Button from '@mui/material/Button'
 import ItemCart from '../itemCart/itemCart';
 
@@ -11,7 +10,11 @@ import ItemCart from '../itemCart/itemCart';
 import cartContext from '../Context/cartContext';
 
 const Cart = ({showCart, close})=> {
-    const { products } = useContext(cartContext); //FALTA HACER QUE SE ACTUALICE SOLO SIN SALIR DEL CARRITO
+    const { products, removeAll } = useContext(cartContext); //FALTA HACER QUE SE ACTUALICE SOLO SIN SALIR DEL CARRITO
+
+    const cleanCart = () => {
+        removeAll();
+    }
 
     return ( 
         <div className={`cart-container ${showCart ? "active" : ""}`} > 
@@ -30,6 +33,11 @@ const Cart = ({showCart, close})=> {
                     })
                 }
             </div>
+            <button className="btn-clear"
+                onClick={cleanCart}
+            >
+                Limpiar carrito
+            </button>
             <div className="cart-footer">
                 <div className="total-price">
                     Precio total: $12.000

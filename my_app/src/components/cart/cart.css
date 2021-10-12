@@ -57,3 +57,17 @@
 .cart-header .button-close:hover{
     background: #4e61bd;
 }
+
+.btn-clear{
+    position: absolute;
+    right: 10px;
+    bottom: 6em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #4e61bd;
+}
+
+.btn-clear:hover{
+    text-decoration: underline;
+}

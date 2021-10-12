@@ -22,8 +22,7 @@ function ItemDetail({product}) {
     }
 
     const addToCart = () => {
-        product.quantity = quantity;
-        addProduct(product);
+        addProduct(product, quantity);
     }
 
     const onAdd = () => {
@@ -64,7 +63,7 @@ function ItemDetail({product}) {
                         variant="contained" 
                         color="primary" 
                         disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
-                        onClick={addProduct(product)}
+                        onClick={addToCart}
                     >
                         Comprar
                     </Button>
