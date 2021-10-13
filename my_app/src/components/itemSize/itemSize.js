@@ -1,11 +1,12 @@
+import { useContext } from 'react';
 /* CUSTOM STYLE */
 import './itemSize.css';
-import {Button} from '@material-ui/core';
-import ItemCount from '../itemCount/itemCount';
 /* MATERIAL UI */
+import {Button} from '@material-ui/core';
 
 
 function ItemSize() {
+
   return (
     <>
         <div className="size-container">

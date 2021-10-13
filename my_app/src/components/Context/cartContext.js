@@ -93,7 +93,7 @@ const CartProvider = ({children}) => {
         removeAll,
         getProductById,
         total,
-        totalItem
+        totalItem,
     }
 
     return (

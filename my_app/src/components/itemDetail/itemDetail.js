@@ -70,7 +70,8 @@ function ItemDetail({product}) {
 
                 <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
 
-                <Button className="btn-buy"
+                <div className="button-container">
+                    <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
                         disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
@@ -78,6 +79,7 @@ function ItemDetail({product}) {
                     >
                         Comprar
                     </Button>
+                </div>
                 <Modal
                     open={openModal}
                 >
@@ -89,10 +91,10 @@ function ItemDetail({product}) {
                             <ItemCart product={product} />
                         </div>
                         <div className="buttons-container">
-                            <Link to={"/Cart"} className="link_btn-buy" >
+                            <Link to={"/Cart"} className="link_modal" >
                                 <Button color="primary" variant="contained">Ver Carrito</Button>
                             </Link>
-                            <Link to={"/"} className="link_btn-buy" >
+                            <Link to={"/"} className="link_modal" >
                                 <Button color="primary" variant="contained">Seguir Comprando</Button>
                             </Link>
                         </div>

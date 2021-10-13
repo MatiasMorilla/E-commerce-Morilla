@@ -58,7 +58,7 @@
     margin: 0;
 }
 
-.link_btn-buy{
+.button-container{
     width: 200%;
     display: flex;
     justify-content: center;
@@ -107,13 +107,14 @@
     display: none;
 }
 
-.modal-container .item-container .product{
-    /* border: none; */
-}
 
 .modal-container .buttons-container{
     grid-area: btn;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+a.link_modal{
+    text-decoration: none;
 }

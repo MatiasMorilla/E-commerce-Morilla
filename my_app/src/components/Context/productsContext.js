@@ -36,7 +36,8 @@ const ProductsProvider = ({children}) => {
                     ],
                     price: 12.999,
                     stock: 100,
-                    quantity: 0
+                    quantity: 0,
+                    talle: 39
                 },
                 {
                     id: 2,
@@ -51,7 +52,8 @@ const ProductsProvider = ({children}) => {
                     ],
                     price: 12.999,
                     stock: 150,
-                    quantity: 0
+                    quantity: 0,
+                    talle: 40
                 },
                 {
                     id: 3,
@@ -66,7 +68,8 @@ const ProductsProvider = ({children}) => {
                     ],
                     price: 12.889,
                     stock: 90,
-                    quantity: 0
+                    quantity: 0,
+                    talle: 41
                 },
                 {
                     id: 4,
@@ -81,7 +84,8 @@ const ProductsProvider = ({children}) => {
                     ],
                     price: 12.899,
                     stock: 40,
-                    quantity: 0
+                    quantity: 0,
+                    talle: 42
                 }
             ]
 
@@ -89,9 +93,20 @@ const ProductsProvider = ({children}) => {
         }, 2000);
     });
 
+    /* const getProductsByName = (name) =>{
+        let array = [];
+
+        getProducts.then( (res) => {
+            array = res.filter( product => product.name == name);
+        });
+
+        return array;
+    }
+ */
     
     const data = {
-        getProducts
+        getProducts,
+        /* getProductsByName */
     }
 
     return (
