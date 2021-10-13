@@ -71,3 +71,27 @@
     height: 3em;
     width: 11em;
 }
+
+.modal-container {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "text text"
+                         "text text"
+                         "btn btn";
+}
+
+.modal-container .text-container{
+    grid-area: text;
+}
+
+.modal-container .buttons-container{
+    grid-area: btn;
+}

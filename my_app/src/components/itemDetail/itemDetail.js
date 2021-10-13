@@ -5,8 +5,10 @@ import './itemDetail.css';
 /* COMPONETS */
 import ItemSize from '../itemSize/itemSize';
 import ItemCount from '../itemCount/itemCount';
+import ItemCart from '../itemCart/itemCart';
 /* MATERIAL UI */
 import Button from "@material-ui/core/Button";
+import Modal from '@mui/material/Modal';
 /* CONTEXT */
 import CartContext from '../Context/cartContext';
 
@@ -14,7 +16,8 @@ import CartContext from '../Context/cartContext';
 function ItemDetail({product}) {
     const [mainImage, setMainImage] = useState(product.images[0]);
     const [quantity, setQuantity] = useState(1);
-    const {products, addProduct} = useContext(CartContext);
+    const {addProduct} = useContext(CartContext);
+    const [openModal, setOpenModal] = useState(false);
 
     
     const handleChangeImage = (e) => {
@@ -31,6 +34,14 @@ function ItemDetail({product}) {
 
     const onSubtract = () => {
         quantity != 0 && setQuantity(quantity - 1);
+    }
+
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    }
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
     }
 
     return (
@@ -58,16 +69,31 @@ function ItemDetail({product}) {
 
                 <ItemCount stock={product.stock} onAdd={onAdd} onSubtract={onSubtract} quantity={quantity}/>
 
-                <Link to={"/Cart"} className="link_btn-buy" >
-                    <Button className="btn-buy"
+                <Button className="btn-buy"
                         variant="contained" 
                         color="primary" 
                         disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
-                        onClick={addToCart}
+                        onClick={addToCart, handleOpenModal}
                     >
                         Comprar
                     </Button>
-                </Link>
+                {/* <Link to={"/Cart"} className="link_btn-buy" >
+                    
+                </Link> */}
+
+                <Modal
+                    open={openModal}
+                >
+                    <div className="modal-container">
+                        <div className="text-container"> 
+                            <p>Se ha agregado un producto al carrito!</p>
+                        </div>
+                        <div className="buttons-container">
+                            <Button color="primary" variant="contained">Ver Carrito</Button>
+                            <Button color="primary" variant="contained">Seguir Comprando</Button>
+                        </div>
+                    </div>
+                </Modal>
                 <p>{`$${product.price}`}</p>
             </div>
         </div>
