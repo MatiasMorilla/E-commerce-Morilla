@@ -8,16 +8,17 @@ import ItemCart from '../itemCart/itemCart';
 
 /* CONTEXT */
 import cartContext from '../Context/cartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = ({showCart, close})=> {
-    const { products, removeAll } = useContext(cartContext); //FALTA HACER QUE SE ACTUALICE SOLO SIN SALIR DEL CARRITO
+    const { products, removeAll, total } = useContext(cartContext); //FALTA HACER QUE SE ACTUALICE SOLO SIN SALIR DEL CARRITO
 
     const cleanCart = () => {
         removeAll();
     }
 
     return ( 
-        <div className={showCart ? 'black-container' : undefined} onClick={close}>
+        <div className={showCart ? 'black-container' : undefined}>
             <div className={`cart-container ${showCart ? "active" : ""}`} > 
                 <div className="cart-header">
                     <h2>Carrito de compras</h2>
@@ -29,7 +30,7 @@ const Cart = ({showCart, close})=> {
                     {
                         products.length == 0 ? 
                         (
-                            <p>No hay producto en el carrito, ve a comprar!</p>
+                            <p>No hay productos en el carrito</p>
                         )
                         :
                         (
@@ -48,12 +49,14 @@ const Cart = ({showCart, close})=> {
                 </button>
                 <div className="cart-footer">
                     <div className="total-price">
-                        Precio total: $12.000
+                        Precio total: $ {total}
                     </div>
                     <div>
-                        <Button variant="contained" color="primary" className="button-buy">
-                            Comprar
-                        </Button>
+                        <Link to={"/Cart"} className="link-buttonBuy" >
+                            <Button variant="contained" className="button-buy">
+                                Comprar
+                            </Button>
+                        </Link>
                     </div>      
                 </div>
             </div>

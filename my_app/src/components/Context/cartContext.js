@@ -1,9 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({children}) => {
     const [products, setProducts] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [totalItem, setTotalItem] = useState(0);
 
     const addProduct = (product, quantity) => {
         if(isInCart(product))
@@ -16,13 +18,27 @@ const CartProvider = ({children}) => {
             product.quantity = quantity;
             products.push(product);
         }
+        getTotal();
+        getTotalItems();
     }
 
     const removeProduct = (product) => {
         //Obtenemos el indice del producto
         let indexOfProduct = products.indexOf(product);
-        //Eliminamos el producto
-        products.splice(indexOfProduct, 1); 
+
+        if(product.quantity > 1)
+        {
+            //Eliminamos un producto hasta llegar a 1
+            products[indexOfProduct].quantity--; 
+        }
+        else
+        {
+            //Eliminamos el producto
+            products.splice(indexOfProduct, 1);
+        }
+
+        getTotal();
+        getTotalItems();
     }
 
     const removeAll = () => {
@@ -50,11 +66,34 @@ const CartProvider = ({children}) => {
         return existProduct;
     }
 
+    const getTotal = () => {
+        let total = 0;
+
+        products.forEach( (product) => {
+            total += (product.price * product.quantity);
+        });
+
+        setTotal(total);
+    }
+
+    const getTotalItems = () => {
+        let totalItem = 0;
+
+        products.forEach( (product) => {
+            totalItem++;
+        });
+
+        setTotalItem(totalItem);
+    }
+
     const data = {
         products,
         addProduct,
         removeProduct,
-        removeAll
+        removeAll,
+        getProductById,
+        total,
+        totalItem
     }
 
     return (

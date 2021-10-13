@@ -26,6 +26,7 @@ function ItemDetail({product}) {
 
     const addToCart = () => {
         addProduct(product, quantity);
+        handleOpenModal();
     }
 
     const onAdd = () => {
@@ -73,14 +74,10 @@ function ItemDetail({product}) {
                         variant="contained" 
                         color="primary" 
                         disabled={product.stock === 0 || quantity <= 0 || quantity > product.stock}
-                        onClick={addToCart, handleOpenModal}
+                        onClick={addToCart}
                     >
                         Comprar
                     </Button>
-                {/* <Link to={"/Cart"} className="link_btn-buy" >
-                    
-                </Link> */}
-
                 <Modal
                     open={openModal}
                 >
@@ -88,9 +85,16 @@ function ItemDetail({product}) {
                         <div className="text-container"> 
                             <p>Se ha agregado un producto al carrito!</p>
                         </div>
+                        <div className="item-container">
+                            <ItemCart product={product} />
+                        </div>
                         <div className="buttons-container">
-                            <Button color="primary" variant="contained">Ver Carrito</Button>
-                            <Button color="primary" variant="contained">Seguir Comprando</Button>
+                            <Link to={"/Cart"} className="link_btn-buy" >
+                                <Button color="primary" variant="contained">Ver Carrito</Button>
+                            </Link>
+                            <Link to={"/"} className="link_btn-buy" >
+                                <Button color="primary" variant="contained">Seguir Comprando</Button>
+                            </Link>
                         </div>
                     </div>
                 </Modal>

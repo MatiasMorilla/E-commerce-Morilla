@@ -73,25 +73,47 @@
 }
 
 .modal-container {
-    width: 500px;
-    height: 200px;
+    width: 520px;
+    height: 220px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
+    border-radius: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: "text text"
-                         "text text"
+                         "item item"
                          "btn btn";
 }
 
 .modal-container .text-container{
     grid-area: text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-container .item-container{
+    grid-area: item;
+}   
+
+.modal-container .item-container .product-quantity,
+.modal-container .item-container .product-delete{
+    display: none;
+}
+
+.modal-container .item-container .product{
+    /* border: none; */
 }
 
 .modal-container .buttons-container{
     grid-area: btn;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
