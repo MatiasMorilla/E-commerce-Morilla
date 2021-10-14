@@ -17,6 +17,20 @@ const Cart = ({showCart, close})=> {
         removeAll();
     }
 
+    const order = {
+        buyer: {
+            name: "Matias Morilla",
+            gmail: "matias@hotmail.com",
+            phone: 2235024546
+        },
+        item : products,
+        total: total
+    }
+
+    const getOrder = () => {
+        console.log("Orden Generada: ", order);
+    }
+
     return ( 
         <div className={showCart ? 'black-container' : undefined}>
             <div className={`cart-container ${showCart ? "active" : ""}`} > 
@@ -53,7 +67,12 @@ const Cart = ({showCart, close})=> {
                     </div>
                     <div>
                         <Link to={"/Cart"} className="link-buttonBuy" >
-                            <Button variant="contained" className="button-buy">
+                            <Button 
+                                variant="contained" 
+                                className="button-buy" 
+                                onClick={getOrder}
+                                disabled={products.length === 0}    
+                            >
                                 Comprar
                             </Button>
                         </Link>
