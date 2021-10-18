@@ -14,7 +14,7 @@ const ItemDetailContainer = (props) =>
 {
     const [product, setProduct] = useState({});
     const {productId} = useParams();
-    const {getProducts} = useContext(ProductsContext);
+    const {productsList} = useContext(ProductsContext);
 
     const filterById = (array) => {
         // filter nos devuelve un array con un objeto por eso accedemos a su primera posicion y despues lo seteamos al product
@@ -23,11 +23,7 @@ const ItemDetailContainer = (props) =>
 
     useEffect( () => 
     {
-        getProducts.then( (res) =>
-        {
-            filterById(res);
-        });
-
+        filterById(productsList);
     }, [productId]);
 
     return(

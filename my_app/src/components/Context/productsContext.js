@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 /* ASSETS */
-import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
+/* import img1 from "../../assets/productImg/zapatillas-mujer-new-balance-1.jpg";
 import img1_1 from "../../assets/productImg/zapatillas-mujer-new-balance-1-1.jpg";
 import img1_2 from "../../assets/productImg/zapatillas-mujer-new-balance-1-2.jpg";
 import img1_3 from "../../assets/productImg/zapatillas-mujer-new-balance-1-3.jpg";
@@ -11,87 +11,28 @@ import img2_3 from "../../assets/productImg/zapatillas-mujer-new-balance-2-3.jpg
 import img3 from '../../assets/productImg/zapatilla-hombre-new-balance-3.jpg';
 import img3_1 from '../../assets/productImg/zapatilla-hombre-new-balance-3-1.jpg';
 import img3_2 from '../../assets/productImg/zapatilla-hombre-new-balance-3-2.jpg';
-import img3_3 from '../../assets/productImg/zapatilla-hombre-new-balance-3-3.jpg';
+import img3_3 from '../../assets/productImg/zapatilla-hombre-new-balance-3-3.jpg'; */
+
+/* FIRESTORE */
+import dataBase from "../../firestore";
+import { collection, getDocs } from "@firebase/firestore";
 
 const ProductsContext = createContext();
 
-
 const ProductsProvider = ({children}) => {
+    const [productsList, setProducts] = useState([]);
 
-    const getProducts = new Promise( (resolve) => {
-        setTimeout( () =>
-        {
-            const mockProduct = 
-            [
-                {
-                    id: 1,
-                    category: "Mujer",
-                    name: "Zapatillas New Balance 574",
-                    images:
-                    [
-                        img1,
-                        img1_1,
-                        img1_2,
-                        img1_3
-                    ],
-                    price: 12.999,
-                    stock: 100,
-                    quantity: 0,
-                    talle: 39
-                },
-                {
-                    id: 2,
-                    category: "Mujer",
-                    name: "Zapatillas New Balance 574",
-                    images:
-                    [
-                        img2,
-                        img2_1,
-                        img2_2,
-                        img2_3
-                    ],
-                    price: 12.999,
-                    stock: 150,
-                    quantity: 0,
-                    talle: 40
-                },
-                {
-                    id: 3,
-                    category: "Hombre",
-                    name: "Zapatillas New Balance 574",
-                    images:
-                    [
-                        img3,
-                        img3_1,
-                        img3_2,
-                        img3_3
-                    ],
-                    price: 12.889,
-                    stock: 90,
-                    quantity: 0,
-                    talle: 41
-                },
-                {
-                    id: 4,
-                    category: "Hombre",
-                    name: "Zapatillas New Balance 574",
-                    images:
-                    [
-                        img3,
-                        img3_1,
-                        img3_2,
-                        img3_3
-                    ],
-                    price: 12.899,
-                    stock: 40,
-                    quantity: 0,
-                    talle: 42
-                }
-            ]
 
-            resolve(mockProduct);
-        }, 2000);
-    });
+    const getProducts = async() => {
+        // Obtenemos la coleccion de la base de datos
+        const productsCollection = collection(dataBase, "products");
+        // Obtenemos los documentos de nuestra coleccion
+        const productSnapShot = await getDocs(productsCollection);
+        // Mapeamos el array de documentos para obtener un array de solo los objetos que creamos
+        const productList = productSnapShot.docs.map(doc => doc.data());
+
+        setProducts(productList);
+    }
 
     /* const getProductsByName = (name) =>{
         let array = [];
@@ -103,10 +44,12 @@ const ProductsProvider = ({children}) => {
         return array;
     }
  */
+    useEffect( () => {
+        getProducts();
+    }, []);
     
     const data = {
-        getProducts,
-        /* getProductsByName */
+        productsList
     }
 
     return (

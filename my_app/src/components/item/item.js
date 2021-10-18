@@ -8,13 +8,13 @@ const Item = ({name, price, img}) =>
 
     return (
         <Card className="card-container">
-            <CardMedia
+           { <CardMedia
                 component="img"
                 width="200"
                 height= "140"
-                image= {img[0]}
-                alt={img}
-            />
+                image={`../../assets/productImg/${img[0]}`}
+                alt={img[0]}
+            />}
             <CardContent className="cardContent">
                 <h4 className="cardContent__title">
                     {name}

@@ -14,17 +14,20 @@ const ItemList = () =>
 {
     const [products, setProducts] = useState([]);
     const {categoryId} = useParams();
-    const {getProducts} = useContext(ProductsContext)
+    const {productsList} = useContext(ProductsContext)
+
+    console.log(productsList);
 
     useEffect( () => {
         // seteo el array de productos con un array vacio para que cuando se cambia de categoria vuelva a aparecer el loader
         setProducts([]);
 
-        getProducts.then( (res) => {
-            setProducts(filterByCategory(res));
-        })
+        setProducts(filterByCategory(productsList));
 
     }, [categoryId]);
+
+    console.log(products);
+    console.log(categoryId);
 
     const filterByCategory = (array) =>{
         let filteredArray = [];
