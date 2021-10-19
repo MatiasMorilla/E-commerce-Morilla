@@ -19,12 +19,14 @@ const ItemDetailContainer = (props) =>
     const filterById = (array) => {
         // filter nos devuelve un array con un objeto por eso accedemos a su primera posicion y despues lo seteamos al product
         setProduct(array.filter( (product) => product.id == productId)[0]);
+        console.log(product);
     }
+
 
     useEffect( () => 
     {
         filterById(productsList);
-    }, [productId]);
+    }, [productsList, productId]);
 
     return(
         <div>

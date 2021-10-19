@@ -14,7 +14,7 @@ import CartContext from '../Context/cartContext';
 
 
 function ItemDetail({product}) {
-    const [mainImage, setMainImage] = useState(`/static/media/${product.image[0]}`);
+    const [mainImage, setMainImage] = useState(product.images[0]);
     const [quantity, setQuantity] = useState(1);
     const {addProduct} = useContext(CartContext);
     const [openModal, setOpenModal] = useState(false);
@@ -53,7 +53,7 @@ function ItemDetail({product}) {
                     {
                         return(
                             <div className="images-list">
-                                <img key={index} className="image-item" onClick={handleChangeImage} src={`/static/media/${image}`} alt="img de zapatillas"/>
+                                <img key={index} className="image-item" onClick={handleChangeImage} src={image} alt="img de zapatillas"/>
                             </div>
                         );
                     })

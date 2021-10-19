@@ -12,7 +12,7 @@ const Item = ({name, price, img}) =>
                 component="img"
                 width="200"
                 height= "140"
-                image={`../../assets/productImg/${img[0]}`}
+                image={img[0]}
                 alt={img[0]}
             />}
             <CardContent className="cardContent">

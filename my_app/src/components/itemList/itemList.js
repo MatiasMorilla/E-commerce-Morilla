@@ -16,18 +16,17 @@ const ItemList = () =>
     const {categoryId} = useParams();
     const {productsList} = useContext(ProductsContext)
 
-    console.log(productsList);
-
     useEffect( () => {
-        // seteo el array de productos con un array vacio para que cuando se cambia de categoria vuelva a aparecer el loader
-        setProducts([]);
+        if(categoryId)
+        {
+            setProducts(filterByCategory(productsList));
+        }
+        else
+        {
+            setProducts(productsList);
+        }
 
-        setProducts(filterByCategory(productsList));
-
-    }, [categoryId]);
-
-    console.log(products);
-    console.log(categoryId);
+    }, [productsList, categoryId]);
 
     const filterByCategory = (array) =>{
         let filteredArray = [];
