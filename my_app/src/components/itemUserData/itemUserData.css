@@ -1,0 +1,17 @@
+.form-userdata{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-userdata .item-input{
+    margin: 10px;
+}
+
+.form-userdata .item-input input{
+    width: 250px;
+}

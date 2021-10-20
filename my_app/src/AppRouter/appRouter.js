@@ -4,6 +4,7 @@ import ItemDetailContainer from '../components/itemDetailContainer/itemDetailCon
 import ItemListContainer from '../components/itemListContainer/itemListContainer';
 import Slider from '../components/slider/slider'
 import NotFoundPage from '../components/notFoundPage/notFoundPage';
+import ItemCartContainer from '../components/itemCartContainer/itemCartContainer';
 
 
 const AppRouter = () => {
@@ -19,7 +20,7 @@ const AppRouter = () => {
                         <ItemDetailContainer greeting="Detalles de producto" />
                     </Route>
                     <Route path="/cart">
-                        <h1>Cart</h1>
+                        <ItemCartContainer />
                     </Route>
                     <Route exact path="/">
                         <Slider />
