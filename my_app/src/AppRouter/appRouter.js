@@ -5,6 +5,7 @@ import ItemListContainer from '../components/itemListContainer/itemListContainer
 import Slider from '../components/slider/slider'
 import NotFoundPage from '../components/notFoundPage/notFoundPage';
 import ItemCartContainer from '../components/itemCartContainer/itemCartContainer';
+import ItemFooter from '../components/itemFooter/itemFooter';
 
 
 const AppRouter = () => {
@@ -25,6 +26,7 @@ const AppRouter = () => {
                     <Route exact path="/">
                         <Slider />
                         <ItemListContainer greeting="Lista de productos"/>
+                        <ItemFooter />
                     </Route>
                     <Route path="*">
                         <NotFoundPage />

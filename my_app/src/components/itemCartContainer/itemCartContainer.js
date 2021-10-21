@@ -22,57 +22,188 @@ const ItemCartContainer = () => {
     const [ownerName, setOwnerName] = useState("");
     const [dueDate, setDueDate] = useState("");
     const [securityCode, setSecurityCode] = useState("");
+    const [validForm, setValidForm] = useState(false);
 
     const handleName = (e) =>{
-        setName(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setName(e.target.value);
+            setValidForm(true);
+        }
     }
 
     const handleLastName = (e) =>{
-        setLastName(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setLastName(e.target.value);
+        }
     }
 
     const handleEmail = (e) =>{
-        setEmail(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setEmail(e.target.value);
+        }
     }
 
     const handleProvince = (e) =>{
-        setProvince(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setProvince(e.target.value);
+        }
     }
 
     const handleCity = (e) =>{
-        setCity(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setCity(e.target.value);
+        }
     }
 
     const handleAddress = (e) =>{
-        setAddress(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setAddress(e.target.value);
+        }
     }
 
     const handlePiso = (e) =>{
-        setPiso(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setPiso(e.target.value);
+        }
     }
 
     const handleDepto = (e) =>{
-        setDepto(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setDepto(e.target.value);
+        }
     }
 
     const handlePostalCode = (e) =>{
-        setPostalCode(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setPostalCode(e.target.value);
+        }
     }
 
     const handleNumber = (e) =>{
-        setNumber(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setNumber(e.target.value);
+        }
     }
 
     const handleOwnerName = (e) =>{
-        setOwnerName(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setOwnerName(e.target.value);
+        }
     }
 
     const handleDueDate = (e) =>{
-        setDueDate(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setDueDate(e.target.value);
+        }
     }
 
     const handleSecurityCode = (e) =>{
-        setSecurityCode(e.target.value);
+        let value = e.target.value;
+
+        if(value == "" || value.length == 0)
+        {
+            setValidForm(false);
+        }
+        else
+        {
+            setValidForm(true);
+            setSecurityCode(e.target.value);
+        }
     }
 
     const buyer = {
@@ -93,22 +224,27 @@ const ItemCartContainer = () => {
         }
     }
 
+    console.log(validForm);
+
     return(
-        <div>
-            <h2>Mi Pedido</h2>
+        <div className="main-container">
+            <div className="header-container">
+                <h2 className="title">Mi Pedido</h2>
+                <p>Por favor llene los campos listados a continuación y luego presione el botón Finalizar Compra.</p>
+            </div>
             <div className="itemCart-container">
-                <div className="container-userdata">
-                    <p>1. Direccion de envio</p>
+                <div className="container container-userdata">
+                    <p><span className="step">1</span> Direccion de envio</p>
                     <hr/>
                     <ItemUserData hn={handleName} hlm={handleLastName} he={handleEmail} hp={handleProvince} hc={handleCity} hd={handleAddress} hpiso={handlePiso} hdepto={handleDepto} hpd={handlePostalCode} />
                 </div>
-                <div className="container-products">
-                    <p>3. Finalizar Compra</p>
+                <div className="container container-products">
+                    <p><span className="step">3</span> Finalizar Compra</p>
                     <hr/>
                     <CartBuyer buyer={buyer} />
                 </div>
-                <div className="container-creditcard">
-                    <p>2. Metodo de pago</p>
+                <div className="container container-creditcard">
+                    <p><span className="step">2</span> Metodo de pago</p>
                     <hr/>
                     <ItemCreditCard hnumber={handleNumber} hon={handleOwnerName} hdd={handleDueDate} hsc={handleSecurityCode}/>
                 </div>
