@@ -1,17 +1,19 @@
 /* CUSTOM STYLES */
 import './itemListContainer.css';
+/* COMPONENTS */
 import ItemList from '../itemList/itemList';
+import ItemFilter from '../itemFilter/itemFilter';
 
 
 
-const ItemListContainer = (props) => 
+const ItemListContainer = () => 
 {
     
 
     return(
         <div className="itemListContainer">
-            <h1>{props.greeting}</h1>
             <ItemList/>
+            <ItemFilter />
         </div>
     );
 }

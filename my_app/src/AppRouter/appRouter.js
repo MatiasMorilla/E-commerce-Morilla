@@ -15,17 +15,17 @@ const AppRouter = () => {
                 <NavBar />
                 <Switch>
                     <Route path="/category/:categoryId">
-                        <ItemListContainer greeting="Lista de productos"/>
+                        <ItemListContainer />
                     </Route>
                     <Route path="/product/:productId">
-                        <ItemDetailContainer greeting="Detalles de producto" />
+                        <ItemDetailContainer  />
                     </Route>
                     <Route path="/cart">
                         <ItemCartContainer />
                     </Route>
                     <Route exact path="/">
                         <Slider />
-                        <ItemListContainer greeting="Lista de productos"/>
+                        <ItemListContainer />
                         <ItemFooter />
                     </Route>
                     <Route path="*">
