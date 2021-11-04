@@ -53,6 +53,10 @@ header.NavBar{
     justify-content: center;
 }
 
+.search-container #searchForm{
+    display: flex;
+}
+
 .search-container .search-input{
     width: 100%;
     padding-left: 1em;

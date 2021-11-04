@@ -10,7 +10,7 @@ import Item from '../item/item';
 /* CONTEXT */
 import ProductsContext from '../Context/productsContext';
 
-const ItemList = () => 
+const ItemList = ({rangeValue = [0, 19000], rangeSize = 0, category = "null"}) => 
 {
     const [products, setProducts] = useState([]);
     const {categoryId} = useParams();
@@ -19,21 +19,70 @@ const ItemList = () =>
     useEffect( () => {
         if(categoryId)
         {
-            setProducts(filterByCategory(productsList));
+            setProducts(filterByCategoryId(filterBySize(filterByPrice(productsList))));
         }
         else
         {
-            setProducts(productsList);
+            setProducts(filterBySize(filterByPrice(productsList)));
+            setProducts(filterByPrice(productsList));
+            setProducts(filterByCategory(productsList));
         }
 
-    }, [productsList, categoryId]);
+        
 
-    const filterByCategory = (array) =>{
+    }, [productsList, categoryId, rangeValue, rangeSize]);
+
+    const filterByCategoryId = (array) =>{
         let filteredArray = [];
 
         if(categoryId != undefined)
         {
            filteredArray =  array.filter( product => product.category == categoryId);
+        }
+        else
+        {
+            filteredArray = array;
+        }
+
+        return filteredArray;
+    }
+
+    const filterByCategory = (array) =>{
+        let filteredArray = [];
+
+        if(category != "null")
+        {
+           filteredArray =  array.filter( product => product.category == category);
+        }
+        else
+        {
+            filteredArray = array;
+        }
+
+        return filteredArray;
+    }
+
+    const filterByPrice = (array) =>{
+        let filteredArray = [];
+
+        if(rangeValue != [0, 19000])
+        {
+           filteredArray =  array.filter( product => product.price >= rangeValue[0] && product.price <= rangeValue[1]);
+        }
+        else
+        {
+            filteredArray = array;
+        }
+
+        return filteredArray;
+    }
+
+    const filterBySize = (array) =>{
+        let filteredArray = [];
+
+        if(rangeSize != [0])
+        {
+           filteredArray =  array.filter( product => product.talle == rangeSize);
         }
         else
         {

@@ -6,6 +6,7 @@ import Slider from '../components/slider/slider'
 import NotFoundPage from '../components/notFoundPage/notFoundPage';
 import ItemCartContainer from '../components/itemCartContainer/itemCartContainer';
 import ItemFooter from '../components/itemFooter/itemFooter';
+import SliderProducts from '../components/sliderProducts/sliderProducts';
 
 
 const AppRouter = () => {
@@ -25,7 +26,7 @@ const AppRouter = () => {
                     </Route>
                     <Route exact path="/">
                         <Slider />
-                        <ItemListContainer />
+                        <SliderProducts />
                         <ItemFooter />
                     </Route>
                     <Route path="*">

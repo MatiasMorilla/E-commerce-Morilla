@@ -12,6 +12,14 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 const NavBar = () => {
+
+    const showCatalogue = (e)=>{
+        console.log(e);
+        <Link to={"/catalogo/"} >
+            
+        </Link>
+    }
+
   return (
     <div className="navBar-container">
         {/* Header */}
@@ -25,13 +33,15 @@ const NavBar = () => {
                 </div>
 
                 <div className="search-container">
-                    <div className="search-icon">
-                        <SearchIcon />
-                    </div>
-                    <InputBase
-                        className="search-input"
-                        placeholder="Buscar en la tienda..."
-                    />
+                    <form id="searchForm" onSubmit={showCatalogue}>
+                        <div className="search-icon">
+                            <SearchIcon />
+                        </div>
+                        <InputBase
+                            className="search-input"
+                            placeholder="Buscar en la tienda..."
+                        />
+                    </form>
                  </div>
 
                 <ul className="Toolbar__menu">
