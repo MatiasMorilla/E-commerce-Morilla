@@ -2,11 +2,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from '../components/navBar/navBar';
 import ItemDetailContainer from '../components/itemDetailContainer/itemDetailContainer';
 import ItemListContainer from '../components/itemListContainer/itemListContainer';
-import Slider from '../components/slider/slider'
 import NotFoundPage from '../components/notFoundPage/notFoundPage';
 import ItemCartContainer from '../components/itemCartContainer/itemCartContainer';
-import ItemFooter from '../components/itemFooter/itemFooter';
-import SliderProducts from '../components/sliderProducts/sliderProducts';
+import HomePage from '../components/homePage/homePage';
 
 
 const AppRouter = () => {
@@ -21,13 +19,14 @@ const AppRouter = () => {
                     <Route path="/product/:productId">
                         <ItemDetailContainer  />
                     </Route>
+                    <Route path="/catalogue/:searchValue">
+                        <ItemListContainer />
+                    </Route>
                     <Route path="/cart">
                         <ItemCartContainer />
                     </Route>
                     <Route exact path="/">
-                        <Slider />
-                        <SliderProducts />
-                        <ItemFooter />
+                        <HomePage />
                     </Route>
                     <Route path="*">
                         <NotFoundPage />

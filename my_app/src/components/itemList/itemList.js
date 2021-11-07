@@ -10,7 +10,7 @@ import Item from '../item/item';
 /* CONTEXT */
 import ProductsContext from '../Context/productsContext';
 
-const ItemList = ({rangeValue = [0, 19000], rangeSize = 0, category = "null"}) => 
+const ItemList = ({rangeValue = -1, rangeSize = 0, category = "null", searchValue = ""}) => 
 {
     const [products, setProducts] = useState([]);
     const {categoryId} = useParams();
@@ -21,16 +21,17 @@ const ItemList = ({rangeValue = [0, 19000], rangeSize = 0, category = "null"}) =
         {
             setProducts(filterByCategoryId(filterBySize(filterByPrice(productsList))));
         }
+        else if(searchValue != "")
+        {
+            setProducts(filterBySearchValue(filterBySize(filterByPrice(productsList))));
+        }
         else
         {
-            setProducts(filterBySize(filterByPrice(productsList)));
-            setProducts(filterByPrice(productsList));
-            setProducts(filterByCategory(productsList));
+            setProducts(filterByCategory(filterBySize(filterByPrice(productsList))));
         }
 
-        
+    }, [productsList, categoryId, rangeValue, rangeSize, category ]);
 
-    }, [productsList, categoryId, rangeValue, rangeSize]);
 
     const filterByCategoryId = (array) =>{
         let filteredArray = [];
@@ -65,7 +66,7 @@ const ItemList = ({rangeValue = [0, 19000], rangeSize = 0, category = "null"}) =
     const filterByPrice = (array) =>{
         let filteredArray = [];
 
-        if(rangeValue != [0, 19000])
+        if(rangeValue != -1)
         {
            filteredArray =  array.filter( product => product.price >= rangeValue[0] && product.price <= rangeValue[1]);
         }
@@ -83,6 +84,21 @@ const ItemList = ({rangeValue = [0, 19000], rangeSize = 0, category = "null"}) =
         if(rangeSize != [0])
         {
            filteredArray =  array.filter( product => product.talle == rangeSize);
+        }
+        else
+        {
+            filteredArray = array;
+        }
+
+        return filteredArray;
+    }
+
+    const filterBySearchValue = (array) =>{
+        let filteredArray = [];
+
+        if(searchValue != "")
+        {
+           filteredArray =  array.filter( product => product.name.toLowerCase().includes(searchValue.toLowerCase()));
         }
         else
         {

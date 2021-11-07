@@ -21,15 +21,54 @@ const SliderProducts = () =>
         <div className="sliderProductsContainer">
             <div className="section-container">
                 <h2>Hombres</h2>
-                <ItemList category="Hombre"/>
+                <div className="sliderProducts">
+                    {
+                        productsList.map( (product) => {
+                            if(product.category == "Hombre")
+                            {
+                                return(
+                                    <span>
+                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    </span>
+                                );
+                            }
+                        })
+                    }
+                </div>
             </div>
             <div className="section-container">
                 <h2>Mujeres</h2>
-                <ItemList category="Mujer"/>
+                <div className="sliderProducts">
+                    {
+                        productsList.map( (product) => {
+                            if(product.category == "Mujer")
+                            {
+                                return(
+                                    <span>
+                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    </span>
+                                );
+                            }
+                        })
+                    }
+                </div>
             </div>
             <div className="section-container">
                 <h2>Niños</h2>
-                <ItemList category="Niño"/>
+                <div className="sliderProducts">
+                    {
+                        productsList.map( (product) => {
+                            if(product.category == "Niño")
+                            {
+                                return(
+                                    <span>
+                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    </span>
+                                );
+                            }
+                        })
+                    }
+                </div>
             </div>
         </div>
     );

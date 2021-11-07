@@ -4,13 +4,14 @@ import { useParams } from 'react-router';
 import './itemDetailContainer.css';
 /* COMPONENTS */
 import ItemDetail from '../itemDetail/itemDetail';
+import ItemFooter from '../itemFooter/itemFooter'
 /* MATERIAL UI */
 import { CircularProgress } from '@material-ui/core';
 /* CONTEXT */
 import ProductsContext from '../Context/productsContext';
 
 
-const ItemDetailContainer = (props) => 
+const ItemDetailContainer = () => 
 {
     const [product, setProduct] = useState({});
     const {productId} = useParams();
@@ -26,11 +27,11 @@ const ItemDetailContainer = (props) =>
     useEffect( () => 
     {
         filterById(productsList);
+        window.scrollY = 0;
     }, [productsList, productId]);
 
     return(
         <div>
-            <h1>{props.greeting}</h1>
             <div className="itemDetail-container">
                 {
                     product.images == undefined ? 
@@ -45,7 +46,7 @@ const ItemDetailContainer = (props) =>
                     )
                 }
             </div>
-
+            <ItemFooter />
         </div>
     );
 }

@@ -12,8 +12,41 @@ li{
 header.NavBar{
     background: #fff;
     margin-bottom: 2em;
-    position: inherit;
+    position: relative;
     background: #2c3067;
+    transition: all .3s ease;
+}
+
+header.NavBar.fixed{
+    position: fixed;
+    transition: all .3s ease;
+}
+
+header.NavBar.fixed .Toolbar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #2c3067;
+    height: 60px;
+    width: 60vw;
+    justify-content: end;
+}
+
+header.NavBar.fixed .Toolbar .img-container{
+    display: none;
+}
+
+header.NavBar.fixed .Toolbar .search-container{
+    width: 20em;
+}
+
+header.NavBar.fixed .category-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2c3067;
+    height: 60px;
+    width: 40vw;
 }
 
 .Toolbar{
@@ -55,6 +88,7 @@ header.NavBar{
 
 .search-container #searchForm{
     display: flex;
+    width: 100%;
 }
 
 .search-container .search-input{

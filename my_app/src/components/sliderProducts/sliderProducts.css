@@ -6,7 +6,7 @@
 .section-container{
     margin: 3em 0;
     box-shadow: 2px 2px 25px rgba(0,0,0, .3);
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -17,4 +17,28 @@
     color: #727272;
     letter-spacing: 10px;
     margin-bottom: .8em;
+}
+
+.section-container .sliderProducts{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.section-container .sliderProducts::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+
+
+.section-container .sliderProducts::-webkit-scrollbar:horizontal {
+    height: 4px;
+}
+
+.section-container .sliderProducts::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 20px;
+}
+
+.section-container .sliderProducts span{
+    min-width: 300px;
 }
