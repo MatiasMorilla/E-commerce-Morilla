@@ -10,6 +10,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 /* CONTEXT */
 import ProductsContext from '../Context/productsContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,7 +29,9 @@ const SliderProducts = () =>
                             {
                                 return(
                                     <span>
-                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        <Link to={`/product/${product.id}`} className="link-product">
+                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        </Link>
                                     </span>
                                 );
                             }
@@ -45,7 +48,9 @@ const SliderProducts = () =>
                             {
                                 return(
                                     <span>
-                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        <Link to={`/product/${product.id}`} className="link-product">
+                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        </Link>
                                     </span>
                                 );
                             }
@@ -62,7 +67,9 @@ const SliderProducts = () =>
                             {
                                 return(
                                     <span>
-                                        <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        <Link to={`/product/${product.id}`} className="link-product">
+                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                        </Link>
                                     </span>
                                 );
                             }

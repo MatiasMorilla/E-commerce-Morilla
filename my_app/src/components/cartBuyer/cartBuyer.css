@@ -54,3 +54,14 @@
     background: #4e61bd;
 }
 
+.modal-container{
+    padding: 15px;
+}
+
+.modal-container .text-container h2{
+    font-size: 18px;
+}
+
+.modal-container .link_modal{
+    width: 100%;
+}

@@ -80,6 +80,7 @@ function ItemDetail({product}) {
                         Comprar
                     </Button>
                 </div>
+                <p>{`$${product.price}`}</p>
                 <Modal
                     open={openModal}
                 >
@@ -100,7 +101,6 @@ function ItemDetail({product}) {
                         </div>
                     </div>
                 </Modal>
-                <p>{`$${product.price}`}</p>
             </div>
         </div>
     );

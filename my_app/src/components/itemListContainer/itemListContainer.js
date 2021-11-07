@@ -32,7 +32,7 @@ const ItemListContainer = () =>
     return(
         <>
             {
-                searchValue == undefined ? "" : <h1 className="title">Resultados para la busqueda de: {searchValue}</h1> 
+                searchValue == undefined ? "" : <h1 className="search-title">Resultados para la busqueda de: {searchValue}</h1> 
             }
             <div className="itemListContainer">
                 <ItemFilter rangeValue={rangeValue} rangeSize={rangeSize} handleRangeValue={handleRangeValue} handleRangeSize={handleRangeSize} handleResetFilters={handleResetFilters} />
