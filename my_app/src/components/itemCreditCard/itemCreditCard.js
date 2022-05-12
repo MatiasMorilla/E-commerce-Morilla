@@ -30,7 +30,6 @@ const ItemCreditCard = (props) => {
                         required
                         type="date"
                         id="outlined-dueDate"
-                        label="Fecha de vencimiento"
                         onChange={props.hdd}
                     />
 

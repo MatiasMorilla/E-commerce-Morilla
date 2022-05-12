@@ -28,9 +28,9 @@ const SliderProducts = () =>
                             if(product.category == "Hombre")
                             {
                                 return(
-                                    <span>
-                                        <Link to={`/product/${product.id}`} className="link-product">
-                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    <span key={product.id}>
+                                        <Link to={`/product/${product.id}`} className="link-product" >
+                                            <Item name={product.name} price={product.price} img={product.images} stock={product.stock}/>
                                         </Link>
                                     </span>
                                 );
@@ -47,9 +47,9 @@ const SliderProducts = () =>
                             if(product.category == "Mujer")
                             {
                                 return(
-                                    <span>
-                                        <Link to={`/product/${product.id}`} className="link-product">
-                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    <span key={product.id}>
+                                        <Link to={`/product/${product.id}`} className="link-product" >
+                                            <Item name={product.name} price={product.price} img={product.images} stock={product.stock}/>
                                         </Link>
                                     </span>
                                 );
@@ -65,10 +65,11 @@ const SliderProducts = () =>
                         productsList.map( (product) => {
                             if(product.category == "Niño")
                             {
+                                console.log("producto", product);
                                 return(
-                                    <span>
-                                        <Link to={`/product/${product.id}`} className="link-product">
-                                            <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                                    <span key={product.id}>
+                                        <Link to={`/product/${product.id}`} className="link-product" >
+                                            <Item name={product.name} price={product.price} img={product.images} stock={product.stock}/>
                                         </Link>
                                     </span>
                                 );

@@ -118,3 +118,122 @@
 a.link_modal{
     text-decoration: none;
 }
+
+@media screen and (max-width: 1220px){
+    .detail-container{
+        flex-direction: column;
+    }
+
+    .images-container{
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bigImage-container{
+        max-width: none;
+        min-width: none;
+    }
+
+    .productDetails-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: "title size size"
+                             "title size size"
+                             "title size size"
+                             "quantity quantity quantity"
+                             "price btn btn";
+    }
+}
+
+
+@media screen and (max-width: 800px){
+    .detail-container{
+        flex-direction: column;
+    }
+
+    .images-container{
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bigImage-container{
+        max-width: none;
+        min-width: none;
+    }
+
+    .productDetails-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: "title size size"
+                             "title size size"
+                             "title size size"
+                             "quantity quantity quantity"
+                             "price btn btn";
+    }
+
+    .bigImage-container .bigImage-item{
+        width: 80%;
+    }
+
+    .modal-container {
+        width: 340px;
+        height: 250px;
+    }
+    
+    .modal-container .buttons-container{
+        grid-area: btn;
+        display: inline-block;
+    }
+
+    .modal-container .buttons-container .btn-modal{
+        width: 45%;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .productDetails-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: "title title"
+                             "size size"
+                             "size size"
+                             "size size"
+                             "quantity quantity"
+                             "price price "
+                             "btn btn ";
+    }
+
+
+    .bigImage-container .bigImage-item{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .productDetails-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-areas: "title"
+                             "size"
+                             "size"
+                             "size"
+                             "quantity"
+                             "price"
+                             "btn";
+    }
+
+    .button-container{
+        width: 100%;
+    }
+
+    .bigImage-container .bigImage-item{
+        width: 40%;
+    }
+}

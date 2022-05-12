@@ -13,6 +13,7 @@ import ProductsContext from '../Context/productsContext';
 const ItemList = ({rangeValue = -1, rangeSize = 0, category = "null", searchValue = ""}) => 
 {
     const [products, setProducts] = useState([]);
+    const [flagStock, setFlagStock] = useState(false);
     const {categoryId} = useParams();
     const {productsList} = useContext(ProductsContext)
 
@@ -29,6 +30,10 @@ const ItemList = ({rangeValue = -1, rangeSize = 0, category = "null", searchValu
         {
             setProducts(filterByCategory(filterBySize(filterByPrice(productsList))));
         }
+
+        setTimeout( () => {
+            setFlagStock(true);
+        }, 5000);
 
     }, [productsList, categoryId, rangeValue, rangeSize, category ]);
 
@@ -115,8 +120,8 @@ const ItemList = ({rangeValue = -1, rangeSize = 0, category = "null", searchValu
                 (
                     products.map((product) => {
                         return (
-                            <Link to={`/product/${product.id}`} className="link-product">
-                                <Item key={product.id} name={product.name} price={product.price} img={product.images} stock={product.stock}/>
+                            <Link to={`/product/${product.id}`} className="link-product" key={product.id}>
+                                <Item  name={product.name} price={product.price} img={product.images} stock={product.stock}/>
                             </Link>
                         );
                     })
@@ -124,7 +129,9 @@ const ItemList = ({rangeValue = -1, rangeSize = 0, category = "null", searchValu
                 :
                 (
                     <div className="progres-container">
-                        <CircularProgress />
+                        {
+                            flagStock ? <h2>No hay stock!</h2> : <CircularProgress />
+                        }
                     </div>
                 )
             }

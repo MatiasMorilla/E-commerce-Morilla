@@ -36,6 +36,11 @@ const NavBar = () => {
         {
             setFixed(false);
         }
+
+        if(window.innerWidth <= 800)
+        {
+            setFixed(false);
+        }
     }
 
     useEffect( () => {
@@ -73,13 +78,6 @@ const NavBar = () => {
                     </div>
 
                     <ul className="Toolbar__menu">
-                        <li className="Toolbar__menu__item">
-                            {/* Sirve para hacer un botn que sea un icono */}
-                            <Button variant="text" className="btn-user">
-                                {/* Es el icono que va a servir como boton */}
-                                <AccountCircleIcon className="btn-user__icon" />
-                            </Button>
-                        </li>
                         <li className="Toolbar__menu__item">
                             <CartWidget/>
                         </li>

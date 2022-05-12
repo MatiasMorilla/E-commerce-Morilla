@@ -40,6 +40,7 @@
 
 .itemCart-container .container-products{
     grid-area: products;
+    min-height: 700px;
 }
 
 .container{
@@ -64,4 +65,34 @@
     border-radius: 50%;
     padding: 5px 12px;
     margin-right: 10px;
+}
+
+
+@media screen and (max-width: 1490px){
+    .itemCart-container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr .4fr .8fr;
+        grid-template-areas: "user user "
+                             "card card "
+                             "products products";
+    }
+    
+    .container .form-userdata,
+    .container .form-creditcard{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    .header-container{
+        margin-top: 10em;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .container .form-userdata .item-input input,
+    .container .form-creditcard .item-input input {
+        width: 100%;
+    }
 }

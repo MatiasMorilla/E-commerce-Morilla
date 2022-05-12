@@ -7,3 +7,10 @@
     
     border-radius: 10px;
 }
+
+
+@media screen and (max-width: 800px){
+    .itemDetail-container{
+        margin-top: 10em;
+    }
+}

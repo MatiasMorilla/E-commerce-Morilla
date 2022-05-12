@@ -93,10 +93,10 @@ function ItemDetail({product}) {
                         </div>
                         <div className="buttons-container">
                             <Link to={"/Cart"} className="link_modal" >
-                                <Button color="primary" variant="contained">Ver Carrito</Button>
+                                <Button color="primary" variant="contained" className='btn-modal'>Ver Carrito</Button>
                             </Link>
                             <Link to={"/"} className="link_modal" >
-                                <Button color="primary" variant="contained">Seguir Comprando</Button>
+                                <Button color="primary" variant="contained" className='btn-modal'>Seguir Comprando</Button>
                             </Link>
                         </div>
                     </div>

@@ -132,3 +132,34 @@ header.NavBar.fixed .category-container{
     color: #fff;
     border-bottom: 2px solid #fff;
 }
+
+@media screen and (max-width: 1200px){
+    .NavBar .category-container{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .NavBar .category-container{
+        width: 100%;
+    }
+
+    header.NavBar{
+        position: fixed;
+    }
+}
+
+
+@media screen and (max-width: 480px){    
+    .NavBar .category-container{
+        padding-left: 0;
+        font-size: 13px;
+        flex-wrap: wrap;
+    }
+
+
+    .img-container{
+        display: none;
+    }
+    
+}
