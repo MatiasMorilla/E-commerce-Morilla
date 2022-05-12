@@ -9,3 +9,9 @@
     display: flex;
 }
 
+@media screen and (max-width: 800px){
+    .itemListContainer{
+        margin-top: 10em;
+        flex-direction: column;
+    }
+}
